@@ -1,0 +1,44 @@
+[
+  {
+    "number": "01",
+    "title": "Demand Forecasting and Dynamic Pricing",
+    "story": "An AI-powered smart energy system that predicts electricity demand using LSTM and generates dynamic pricing based on forecasted transformer load. Combines real-time IoT monitoring, machine learning, and intelligent pricing recommendations to improve energy efficiency and reduce overload.",
+    "highlights": ["LSTM", "dynamic pricing", "real-time IoT monitoring", "machine learning"],
+    "techs": ["Python", "Machine Learning", "LSTM", "IoT", "ESP32", "Streamlit", "ThingSpeak", "TensorFlow", "Pandas", "NumPy", "Plotly", "Git"],
+    "github": "https://github.com/your-username/demand-forecasting-dynamic-pricing",
+    "caseStudy": "#project-01",
+    "videoSrc": "/projects-1/powerhouse-demo.mp4",
+    "backgroundSrc": "/team-background.jpeg",
+    "hardwarePhotos": [
+      "/projects-1/WhatsApp Image 2026-08-14 at 9.43.54 PM.jpeg",
+      "/projects-1/WhatsApp Image 2026-08-14 at 9.43.54 PM (1).jpeg",
+      "/projects-1/WhatsApp Image 2026-04-12 at 1.30.59 AM.jpeg"
+    ],
+    "orientation": "portrait",
+    "reverse": false
+  },
+  {
+    "number": "02",
+    "title": "Acta - Meeting Application",
+    "story": "Acta was developed during HackXtreme'26, a 24-hour hackathon at K. Ramakrishnan College of Engineering, where it won first place. Built around a simple belief — meetings should drive progress, not paperwork — it listens, understands, and transforms discussions into organized minutes, decisions, and actionable tasks, allowing teams to focus on collaboration instead of documentation.",
+    "highlights": ["HackXtreme'26", "first place", "organized minutes", "actionable tasks", "collaboration"],
+    "techs": ["React Native", "Python", "AI", "NLP", "Node.js"],
+    "github": "https://github.com/your-username/acta",
+    "caseStudy": "#project-02",
+    "videoSrc": "/project-2/acta-demo.mp4",
+    "orientation": "landscape",
+    "reverse": true
+  },
+  {
+    "number": "03",
+    "title": "Food Bridge - Redistribution Platform",
+    "story": "FoodBridge was developed during TechHacks 2.0, an international hackathon hosted by SRM Ramapuram at Genesys, Infocity, where it secured second place. It is a smart food redistribution platform designed to make food donation effortless. By bringing together donors, NGOs, volunteers, and logistics partners, it enables surplus food to be rescued quickly, efficiently, and responsibly.",
+    "highlights": ["TechHacks 2.0", "second place", "smart food redistribution platform", "surplus food to be rescued"],
+    "techs": ["Flutter", "Dart", "Machine Learning", "REST APIs"],
+    "github": "https://github.com/your-username/food-bridge",
+    "caseStudy": "#project-03",
+    "videoSrc": "/project-3/foodbridge-demo.mp4",
+    "orientation": "portrait",
+    "reverse": false
+  }
+]

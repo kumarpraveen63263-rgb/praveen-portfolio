@@ -1,0 +1,32 @@
+{
+  "achievementOnePhotos": [
+    "/achievements/1.jpg",
+    "/achievements/2.jpg",
+    "/achievements/3.jpg",
+    "/achievements/4.jpg"
+  ],
+  "genesysPhotos": [
+    "/achievements/ach-2/G1.jpg",
+    "/achievements/ach-2/g2.jpg",
+    "/achievements/ach-2/techhacks-3.jpeg"
+  ],
+  "achievementThreePhotos": [
+    "/achievements/ach-3/1775318001371.jpg",
+    "/achievements/ach-3/1775318001422.jpg",
+    "/achievements/ach-3/1775318001626.jpg"
+  ],
+  "achievementFourPhotos": [
+    "/achievements/ach-4/ach4-1.jpeg",
+    "/achievements/ach-4/ach4-2.jpeg",
+    "/achievements/ach-4/ach4-3.jpeg",
+    "/achievements/ach-4/ach4-4.jpeg"
+  ],
+  "achievementFivePhotos": [
+    "/achievements/ach-5/1.jpg",
+    "/achievements/ach-5/2.jpeg"
+  ],
+  "recognitionPhotos": [
+    "/recognition/recognition-1.jpeg",
+    "/recognition/recognition-2.jpeg"
+  ]
+}
