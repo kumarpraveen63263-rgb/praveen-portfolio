@@ -1,0 +1,32 @@
+{
+  "demand-forecasting-dynamic-pricing": {
+    "label": "01 / AI + IoT ENERGY SYSTEM",
+    "title": "Demand Forecasting and Dynamic Pricing",
+    "intro": "An intelligent energy system that connects real-time IoT monitoring with machine-learning forecasts to make transformer-load decisions more informed.",
+    "problem": "Electricity demand can change quickly, making it difficult to anticipate transformer load and respond before overload becomes a risk. A useful solution needed to observe live conditions, forecast demand, and translate those predictions into practical pricing recommendations.",
+    "approach": "The system combines ESP32-based monitoring, ThingSpeak data, an LSTM forecasting model, and a Streamlit interface. Forecasted demand is used to generate dynamic pricing recommendations that encourage more efficient energy usage.",
+    "contribution": "I worked across the system, including IoT data collection, the LSTM forecasting workflow, data analysis, dashboard presentation, and the connection between predictions and pricing logic.",
+    "outcome": "The project brings machine learning, embedded systems, and energy decision-making into one practical workflow designed to improve energy efficiency and reduce overload pressure.",
+    "stack": ["Python", "LSTM", "TensorFlow", "ESP32", "ThingSpeak", "Streamlit", "Pandas", "NumPy", "Plotly"]
+  },
+  "acta": {
+    "label": "02 / HACKXTREME’26",
+    "title": "Acta — Meeting Application",
+    "intro": "A meeting assistant that transforms conversations into organised minutes, decisions, and actionable tasks so teams can focus on progress instead of paperwork.",
+    "problem": "Important meeting information is often scattered across notes and memory. Teams need a faster way to capture what was discussed, what was decided, and what should happen next without interrupting collaboration.",
+    "approach": "Acta listens to meeting content, interprets the discussion, and organises the output into structured minutes, decisions, and tasks. The product was shaped during a 24-hour hackathon around a simple goal: make meetings produce usable progress.",
+    "contribution": "I contributed to the product thinking, application development, AI and NLP workflow, and the process of turning the prototype into a clear and effective hackathon demonstration.",
+    "outcome": "Acta won first place at HackXtreme’26 at K. Ramakrishnan College of Engineering, validating the idea, execution, and presentation under a demanding 24-hour build window.",
+    "stack": ["React Native", "Python", "AI", "NLP", "Node.js"]
+  },
+  "food-bridge": {
+    "label": "03 / TECHHACKS 2.0",
+    "title": "Food Bridge — Redistribution Platform",
+    "intro": "A smart food redistribution platform that helps surplus food move quickly and responsibly from donors to the people and organisations that need it.",
+    "problem": "Surplus food can go to waste when donors, NGOs, volunteers, and logistics partners do not have a simple way to coordinate. The challenge was to make food donation more visible, connected, and actionable.",
+    "approach": "Food Bridge brings the main participants in the redistribution process together through one platform. It focuses on simplifying donation, coordinating support, and helping surplus food reach the right destination efficiently.",
+    "contribution": "I contributed to the mobile application experience, Flutter and Dart implementation, API integration, and the use of intelligent ideas to make the redistribution workflow more practical.",
+    "outcome": "Food Bridge secured second place at TechHacks 2.0, an international hackathon hosted by SRM Ramapuram at Genesys, Infocity.",
+    "stack": ["Flutter", "Dart", "Machine Learning", "REST APIs"]
+  }
+}

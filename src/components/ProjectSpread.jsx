@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import useRevealOnView from '../hooks/useRevealOnView';
 import HardwareCarousel from './HardwareCarousel';
+import CaseStudyModal from './CaseStudyModal';
+import caseStudies from '../data/caseStudies.json';
 
 /**
  * Wraps every occurrence of a highlight phrase in a <mark> element.
@@ -22,8 +24,10 @@ function ProjectSpread({ project, reverse = false }) {
   const [ref, isVisible] = useRevealOnView(0.22);
   const [videoFailed, setVideoFailed] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
 
   const hasHardware = project.hardwarePhotos && project.hardwarePhotos.length > 0;
+  const caseStudy = project.caseStudyKey ? caseStudies[project.caseStudyKey] : null;
   const posterSrc = project.posterSrc || project.backgroundSrc;
 
   return (
@@ -53,10 +57,10 @@ function ProjectSpread({ project, reverse = false }) {
           <a className="project-button" href={project.github} target="_blank" rel="noreferrer">
             GitHub
           </a>
-          {project.caseStudy && (
-            <a className="project-button project-button--ghost" href={project.caseStudy}>
+          {caseStudy && (
+            <button className="project-button project-button--ghost" type="button" onClick={() => setIsCaseStudyOpen(true)}>
               Case Study
-            </a>
+            </button>
           )}
         </div>
       </div>
@@ -119,6 +123,14 @@ function ProjectSpread({ project, reverse = false }) {
           <HardwareCarousel photos={project.hardwarePhotos} />
         )}
       </div>
+
+      {isCaseStudyOpen && (
+        <CaseStudyModal
+          project={project}
+          study={caseStudy}
+          onClose={() => setIsCaseStudyOpen(false)}
+        />
+      )}
     </div>
   );
 }

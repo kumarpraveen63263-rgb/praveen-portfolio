@@ -7,6 +7,7 @@
     "techs": ["Python", "Machine Learning", "LSTM", "IoT", "ESP32", "Streamlit", "ThingSpeak", "TensorFlow", "Pandas", "NumPy", "Plotly", "Git"],
     "github": "https://github.com/your-username/demand-forecasting-dynamic-pricing",
     "caseStudy": "#project-01",
+    "caseStudyKey": "demand-forecasting-dynamic-pricing",
     "videoSrc": "/projects-1/powerhouse-demo.mp4",
     "backgroundSrc": "/team-background.jpeg",
     "hardwarePhotos": [
@@ -25,6 +26,7 @@
     "techs": ["React Native", "Python", "AI", "NLP", "Node.js"],
     "github": "https://github.com/your-username/acta",
     "caseStudy": "#project-02",
+    "caseStudyKey": "acta",
     "videoSrc": "/project-2/acta-demo.mp4",
     "orientation": "landscape",
     "reverse": true
@@ -37,6 +39,7 @@
     "techs": ["Flutter", "Dart", "Machine Learning", "REST APIs"],
     "github": "https://github.com/your-username/food-bridge",
     "caseStudy": "#project-03",
+    "caseStudyKey": "food-bridge",
     "videoSrc": "/project-3/foodbridge-demo.mp4",
     "orientation": "portrait",
     "reverse": false
