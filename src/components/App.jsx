@@ -495,13 +495,14 @@ function App() {
         </section>
 
         {/* ══ 07 MENTOR & RECOGNITION ══════════════════════════════ */}
-        <section className="section mentor-section" id="mentor">
-          <div className="section-heading mentor-section__heading-row">
+        <section className="section-wrap section--light mentor-section" id="mentor">
+          <div className="grid">
+            <div className="section-heading mentor-section__heading-row">
             <span className="section-no">07</span>
-            <h2 className="mentor-section__heading">Mentor &amp; Recognition</h2>
-          </div>
+              <h2 className="mentor-section__heading">Mentor &amp; Recognition</h2>
+            </div>
 
-          <div className="mentor-section__body">
+            <div className="mentor-section__body">
             <div className="mentor-section__details">
               <span className="label">Mentor</span>
               <p className="mentor-section__name">Dr. T.S. GEETHA</p>
@@ -512,6 +513,7 @@ function App() {
               <p className="mentor-section__copy">
                 Her <span className="mentor-highlight">continuous guidance</span>, <span className="mentor-highlight">valuable feedback</span>, and encouragement helped me strengthen my <span className="mentor-highlight">technical knowledge</span>, improve my <span className="mentor-highlight">research skills</span>, and confidently participate in <span className="mentor-highlight">projects, hackathons, and competitions</span>.
               </p>
+            </div>
             </div>
           </div>
         </section>
