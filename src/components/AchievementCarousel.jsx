@@ -1,6 +1,23 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 function AchievementCarousel({ photos, activePhoto, onChange, variant = '' }) {
+  const [loadedIndexes, setLoadedIndexes] = useState(() => new Set());
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(!loadedIndexes.has(activePhoto));
+  }, [activePhoto, loadedIndexes]);
+
+  const markLoaded = (index) => {
+    setLoadedIndexes((current) => {
+      if (current.has(index)) return current;
+      const next = new Set(current);
+      next.add(index);
+      return next;
+    });
+    if (index === activePhoto) setIsLoading(false);
+  };
+
   return (
     <div className={`achievement-carousel ${variant ? `achievement-carousel--${variant}` : ''}`}>
       <div className="achievement-carousel__images" aria-live="polite">
@@ -13,17 +30,25 @@ function AchievementCarousel({ photos, activePhoto, onChange, variant = '' }) {
           }}
         >
           {photos.map((photo, index) => (
-            <img
-              key={photo}
-              src={photo}
-              alt={`Achievement photo ${index + 1}`}
-              loading="lazy"
-              decoding="async"
-              onError={(event) => {
-                event.currentTarget.style.display = 'none';
-              }}
-            />
+            <div className="achievement-carousel__slide" key={photo}>
+              {loadedIndexes.has(index) || index === activePhoto ? (
+                <img
+                  src={photo}
+                  alt={`Achievement photo ${index + 1}`}
+                  loading={index === activePhoto ? 'eager' : 'lazy'}
+                  decoding="async"
+                  onLoad={() => markLoaded(index)}
+                  onError={() => markLoaded(index)}
+                />
+              ) : (
+                <div className="achievement-carousel__placeholder" aria-hidden="true" />
+              )}
+            </div>
           ))}
+        </div>
+        <div className={`achievement-carousel__loading ${isLoading ? 'is-visible' : ''}`} aria-live="polite">
+          <span className="achievement-carousel__loading-dot" aria-hidden="true" />
+          <span>Loading image</span>
         </div>
       </div>
       <div className="achievement-carousel__caption">

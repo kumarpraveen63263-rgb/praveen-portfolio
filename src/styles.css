@@ -850,7 +850,7 @@ h3 {
   aspect-ratio: 4 / 3;
   border-radius: 12px;
   overflow: hidden;
-  background: #111;
+  background: linear-gradient(145deg, #11110f, #30302b);
   box-shadow: 0 12px 40px rgba(0,0,0,0.18);
   border: 1px solid var(--line);
 }
@@ -866,6 +866,35 @@ h3 {
 }
 
 .hw-carousel__img.is-active { opacity: 1; }
+
+.hw-carousel__img.is-loading { opacity: 0; }
+
+.hw-carousel__loading {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--paper);
+  font: 10px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.25s var(--ease);
+}
+
+.hw-carousel__loading.is-visible { opacity: 1; }
+
+.hw-carousel__loading-dot,
+.achievement-carousel__loading-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--acid);
+  animation: gallery-loading-pulse 1.3s ease-out infinite;
+}
 
 .hw-carousel__dots {
   display: flex;
@@ -1243,14 +1272,50 @@ h3 {
   will-change: transform;
 }
 
-.achievement-carousel__images img {
+.achievement-carousel__slide {
+  position: relative;
   flex: 0 0 var(--achievement-slide-width, 100%);
   width: var(--achievement-slide-width, 100%);
   min-width: 0;
   height: 100%;
+}
+
+.achievement-carousel__images img,
+.achievement-carousel__placeholder {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  opacity: 1;
   display: block;
+}
+
+.achievement-carousel__placeholder {
+  background: linear-gradient(145deg, #171714, #36362f);
+}
+
+.achievement-carousel__loading {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--paper);
+  font: 10px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(17,17,15,0.72);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease);
+}
+
+.achievement-carousel__loading.is-visible { opacity: 1; }
+
+@keyframes gallery-loading-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(212,253,67,0.65); }
+  70% { box-shadow: 0 0 0 9px rgba(212,253,67,0); }
+  100% { box-shadow: 0 0 0 0 rgba(212,253,67,0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1833,6 +1898,8 @@ h3 {
     animation: none !important;
   }
   .cursor { display: none; }
+  .hw-carousel__loading-dot,
+  .achievement-carousel__loading-dot { animation: none; }
   .project-spread__play,
   .project-spread__loading-dot { animation: none; transition: none; }
   .section-transition:not(.hero),
