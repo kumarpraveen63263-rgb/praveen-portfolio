@@ -21,6 +21,7 @@ function applyHighlights(text, highlights = []) {
 function ProjectSpread({ project, reverse = false }) {
   const [ref, isVisible] = useRevealOnView(0.22);
   const [videoFailed, setVideoFailed] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
   const hasHardware = project.hardwarePhotos && project.hardwarePhotos.length > 0;
 
@@ -64,15 +65,23 @@ function ProjectSpread({ project, reverse = false }) {
         {/* Frame (Phone or Landscape Web) */}
         <div className={`project-spread__frame ${project.orientation === 'landscape' ? 'project-spread__frame--landscape' : ''}`}>
           {project.videoSrc && !videoFailed && isVisible ? (
-            <video
-              className="project-spread__video"
-              autoPlay loop muted playsInline
-              preload="metadata"
-              onError={() => setVideoFailed(true)}
-              poster={project.backgroundSrc || undefined}
-            >
-              <source src={project.videoSrc} type="video/mp4" />
-            </video>
+            <>
+              <video
+                className={`project-spread__video ${videoReady ? 'is-ready' : ''}`}
+                autoPlay loop muted playsInline
+                preload="metadata"
+                onLoadedData={() => setVideoReady(true)}
+                onCanPlay={() => setVideoReady(true)}
+                onError={() => setVideoFailed(true)}
+                poster={project.backgroundSrc || undefined}
+              >
+                <source src={project.videoSrc} type="video/mp4" />
+              </video>
+              <div className={`project-spread__video-loading ${videoReady ? 'is-hidden' : ''}`} aria-live="polite">
+                <span className="project-spread__loading-dot" aria-hidden="true" />
+                <span>Loading preview</span>
+              </div>
+            </>
           ) : project.backgroundSrc ? (
             <img
               className="project-spread__poster"

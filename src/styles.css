@@ -703,6 +703,46 @@ h3 {
   filter: saturate(0.8) brightness(0.7);
 }
 
+.project-spread__video-loading {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 36px;
+  background: linear-gradient(145deg, rgba(17,17,15,0.96), rgba(45,45,40,0.96));
+  color: var(--paper);
+  font: 11px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity 0.35s var(--ease);
+}
+
+.project-spread__video-loading.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.project-spread__loading-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--acid);
+  box-shadow: 0 0 0 0 rgba(212,253,67,0.65);
+  animation: video-loading-pulse 1.3s ease-out infinite;
+}
+
+@keyframes video-loading-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(212,253,67,0.65); }
+  70% { box-shadow: 0 0 0 10px rgba(212,253,67,0); }
+  100% { box-shadow: 0 0 0 0 rgba(212,253,67,0); }
+}
+
 .project-spread__frame--landscape .project-spread__video,
 .project-spread__frame--landscape .project-spread__poster,
 .project-spread__frame--landscape .project-spread__fallback {
@@ -714,6 +754,15 @@ h3 {
   border-radius: 6px;
   object-fit: contain;
   display: block;
+}
+
+.project-spread__frame--landscape .project-spread__video-loading {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  border-radius: 6px;
 }
 
 .project-spread__fallback {
