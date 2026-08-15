@@ -22,6 +22,7 @@ function ProjectSpread({ project, reverse = false }) {
   const [ref, isVisible] = useRevealOnView(0.22);
   const [videoFailed, setVideoFailed] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const [videoStarted, setVideoStarted] = useState(false);
 
   const hasHardware = project.hardwarePhotos && project.hardwarePhotos.length > 0;
 
@@ -64,11 +65,11 @@ function ProjectSpread({ project, reverse = false }) {
       <div className={`project-spread__media ${hasHardware ? 'project-spread__media--dual' : ''}`}>
         {/* Frame (Phone or Landscape Web) */}
         <div className={`project-spread__frame ${project.orientation === 'landscape' ? 'project-spread__frame--landscape' : ''}`}>
-          {project.videoSrc && !videoFailed && isVisible ? (
+          {project.videoSrc && !videoFailed && isVisible && videoStarted ? (
             <>
               <video
                 className={`project-spread__video ${videoReady ? 'is-ready' : ''}`}
-                autoPlay loop muted playsInline
+                autoPlay loop muted playsInline controls
                 preload="metadata"
                 onLoadedData={() => setVideoReady(true)}
                 onCanPlay={() => setVideoReady(true)}
@@ -94,8 +95,13 @@ function ProjectSpread({ project, reverse = false }) {
           ) : (
             <div className="project-spread__fallback" aria-hidden="true">
               <span>{project.title}</span>
-              <small>Preview loads on view</small>
+              <small>Preview ready</small>
             </div>
+          )}
+          {project.videoSrc && isVisible && !videoStarted && !videoFailed && (
+            <button className="project-spread__play" type="button" onClick={() => setVideoStarted(true)}>
+              <span aria-hidden="true">▶</span> Play demo
+            </button>
           )}
         </div>
 
