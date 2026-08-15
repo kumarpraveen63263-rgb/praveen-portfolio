@@ -24,6 +24,7 @@ function ProjectSpread({ project, reverse = false }) {
   const [videoReady, setVideoReady] = useState(false);
 
   const hasHardware = project.hardwarePhotos && project.hardwarePhotos.length > 0;
+  const posterSrc = project.posterSrc || project.backgroundSrc;
 
   return (
     <div
@@ -64,6 +65,20 @@ function ProjectSpread({ project, reverse = false }) {
       <div className={`project-spread__media ${hasHardware ? 'project-spread__media--dual' : ''}`}>
         {/* Frame (Phone or Landscape Web) */}
         <div className={`project-spread__frame ${project.orientation === 'landscape' ? 'project-spread__frame--landscape' : ''}`}>
+          {project.videoSrc && (
+            <div className={`project-spread__poster-tile ${videoReady ? 'is-hidden' : ''}`} aria-hidden="true">
+              {posterSrc ? (
+                <img src={posterSrc} alt="" loading="lazy" decoding="async" />
+              ) : (
+                <div className="project-spread__poster-placeholder">
+                  <span>Project {project.number}</span>
+                  <strong>{project.title}</strong>
+                  <small>Video demonstration</small>
+                </div>
+              )}
+            </div>
+          )}
+
           {project.videoSrc && !videoFailed && isVisible ? (
             <>
               <video
@@ -73,7 +88,7 @@ function ProjectSpread({ project, reverse = false }) {
                 onLoadedData={() => setVideoReady(true)}
                 onCanPlay={() => setVideoReady(true)}
                 onError={() => setVideoFailed(true)}
-                poster={project.backgroundSrc || undefined}
+                poster={posterSrc || undefined}
               >
                 <source src={project.videoSrc} type="video/mp4" />
               </video>
@@ -82,7 +97,7 @@ function ProjectSpread({ project, reverse = false }) {
                 <span>Loading preview</span>
               </div>
             </>
-          ) : project.backgroundSrc ? (
+          ) : !project.videoSrc && project.backgroundSrc ? (
             <img
               className="project-spread__poster"
               src={project.backgroundSrc}
@@ -91,13 +106,12 @@ function ProjectSpread({ project, reverse = false }) {
               decoding="async"
               aria-hidden="true"
             />
-          ) : (
+          ) : !project.videoSrc ? (
             <div className="project-spread__fallback" aria-hidden="true">
               <span>{project.title}</span>
               <small>Preview ready</small>
             </div>
-          )}
-
+          ) : null}
         </div>
 
         {/* Hardware carousel — only for projects that have hardware photos */}

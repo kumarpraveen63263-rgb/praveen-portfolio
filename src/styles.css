@@ -688,7 +688,8 @@ h3 {
 }
 
 .project-spread__video,
-.project-spread__poster {
+.project-spread__poster,
+.project-spread__poster-tile {
   position: absolute;
   top: 8px;
   left: 8px;
@@ -702,6 +703,63 @@ h3 {
 .project-spread__poster {
   filter: saturate(0.8) brightness(0.7);
 }
+
+.project-spread__poster-tile {
+  z-index: 1;
+  top: 8px;
+  left: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  overflow: hidden;
+  border-radius: 36px;
+  background: linear-gradient(145deg, #181816, #45453d);
+  opacity: 1;
+  transition: opacity 0.45s var(--ease);
+}
+
+.project-spread__poster-tile.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.project-spread__poster-tile > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.78) brightness(0.68);
+}
+
+.project-spread__poster-placeholder {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 28px;
+  color: var(--paper);
+  text-align: center;
+}
+
+.project-spread__poster-placeholder span,
+.project-spread__poster-placeholder small {
+  color: var(--acid);
+  font: 10px var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-spread__poster-placeholder strong {
+  max-width: 18ch;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.project-spread__poster-placeholder small {
+  color: rgba(233,232,227,0.6);
+}
+
 
 .project-spread__play {
   position: absolute;
@@ -751,7 +809,7 @@ h3 {
   justify-content: center;
   gap: 10px;
   border-radius: 36px;
-  background: linear-gradient(145deg, rgba(17,17,15,0.96), rgba(45,45,40,0.96));
+  background: linear-gradient(145deg, rgba(17,17,15,0.74), rgba(45,45,40,0.82));
   color: var(--paper);
   font: 11px var(--font-mono);
   letter-spacing: 0.08em;
@@ -781,6 +839,7 @@ h3 {
 
 .project-spread__frame--landscape .project-spread__video,
 .project-spread__frame--landscape .project-spread__poster,
+.project-spread__frame--landscape .project-spread__poster-tile,
 .project-spread__frame--landscape .project-spread__fallback {
   position: relative;
   top: 0;
@@ -790,6 +849,15 @@ h3 {
   border-radius: 6px;
   object-fit: contain;
   display: block;
+}
+
+.project-spread__frame--landscape .project-spread__poster-tile {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  border-radius: 6px;
 }
 
 .project-spread__frame--landscape .project-spread__video-loading {
